@@ -87,3 +87,7 @@ BOARD_SEPOLICY_UNION := \
     file.te \
     device.te \
     domain.te
+
+# Hardware tunables
+BOARD_HARDWARE_CLASS := device/htc/tegra3-common/cmhw/
+
