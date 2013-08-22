@@ -77,3 +77,14 @@ BOARD_USE_NEW_LIBRIL_HTC := true
 
 # HTCLOG
 COMMON_GLOBAL_CFLAGS += -DHTCLOG
+
+
+# SE Linux policies
+BOARD_SEPOLICY_DIRS := \
+    device/htc/tegra3-common/selinux
+
+BOARD_SEPOLICY_UNION := \
+    file_contexts_common
+
+# Hardware tunables
+BOARD_HARDWARE_CLASS := device/htc/tegra3-common/cmhw/

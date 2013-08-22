@@ -1,0 +1,3 @@
+# Hardware tunable
+/sys/class/timed_output/vibrator/dutycycle             u:object_r:sysfs_writable:s0
+/sys/devices/tegradc.0/smartdimmer/enable              u:object_r:sysfs_writable:s0
