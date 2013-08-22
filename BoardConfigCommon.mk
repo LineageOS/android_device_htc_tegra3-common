@@ -77,3 +77,6 @@ BOARD_USE_NEW_LIBRIL_HTC := true
 
 # HTCLOG
 COMMON_GLOBAL_CFLAGS += -DHTCLOG
+
+# NvCamera extensions
+TARGET_SPECIFIC_HEADER_PATH := device/htc/tegra3-common/include
