@@ -1,13 +1,38 @@
+on early-init
+    # Adaptive backlight (surfaceflinger Uid: system, Gid: graphics)
+    chown system system /sys/devices/tegradc.0/smartdimmer/enable
+    chmod 0664 /sys/devices/tegradc.0/smartdimmer/enable
+    restorecon /sys/devices/tegradc.0/smartdimmer/enable
+
+on post-fs-data
+    # The camera calibration from the WDM partition is written to
+    # /data/factory_main.bin and /data/factory_front.bin by the vendor camera
+    # HAL that runs inside the mediaserver process. The process runs as uid
+    # media, gid audio and is therefore not allowed to created files in /data.
+    # So create a directory with proper permissions and symlink the files into
+    # it. The files will be created once written.
+    mkdir /data/cam_calib 0770 media system
+    symlink /data/cam_calib/factory_main.bin /data/factory_main.bin
+    symlink /data/cam_calib/factory_front.bin /data/factory_front.bin
+
+    # In case the files already exist (coming from Sense) the symlink creation
+    # will fail. Assign the proper permissions to make them writable.
+    chown media system /data/factory_main.bin
+    chmod 0664 /data/factory_main.bin
+    restorecon /data/factory_main.bin
+
+    chown media system /data/factory_front.bin
+    chmod 0664 /data/factory_front.bin
+    restorecon /data/factory_front.bin
+
 on boot
     # Hardware tunables
+
     # Vibrator intensity
     chown root system /sys/class/timed_output/vibrator/dutycycle
     chmod 0664 /sys/class/timed_output/vibrator/dutycycle
     restorecon /sys/class/timed_output/vibrator/dutycycle
-    # Adaptive backlight
-    chown root system /sys/devices/tegradc.0/smartdimmer/enable
-    chmod 0664 /sys/devices/tegradc.0/smartdimmer/enable
-    restorecon /sys/devices/tegradc.0/smartdimmer/enable
+
     # Button backlight
     chown root system /sys/class/leds/button-backlight/button_brightness
     chmod 0664 /sys/class/leds/button-backlight/button_brightness
