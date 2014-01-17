@@ -138,6 +138,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     device/htc/tegra3-common/configs/egl.cfg:system/lib/egl/egl.cfg
 
+# RIL
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.telephony.ril_class=HTCTegra3RIL
 
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
