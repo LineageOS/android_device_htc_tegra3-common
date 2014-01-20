@@ -99,3 +99,23 @@ BOARD_HARDWARE_CLASS := device/htc/tegra3-common/cmhw/
 
 # RIL (fix network scan issue)
 BOARD_USE_NEW_LIBRIL_HTC := true
+
+# SELinux Defines
+BOARD_SEPOLICY_DIRS := \
+    device/htc/tegra3-common/sepolicy
+
+BOARD_SEPOLICY_UNION := \
+    file_contexts \
+    genfs_contexts \
+    app.te \
+    bdaddwriter.te \
+    device.te \
+    drmserver.te \
+    init_shell.te \
+    file.te \
+    rild.te \
+    sensors_config.te \
+    shell.te \
+    surfaceflinger.te \
+    system.te \
+    zygote.te
