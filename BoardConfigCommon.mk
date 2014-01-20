@@ -88,9 +88,6 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/f_mass_storage/lun0/f
 # HTCLOG
 COMMON_GLOBAL_CFLAGS += -DHTCLOG
 
-# FIXME: Fix SELinux rules
-BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
-
 # NvCamera extensions
 TARGET_SPECIFIC_HEADER_PATH := device/htc/tegra3-common/include
 
