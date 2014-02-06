@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fade3982_e2179b52",
+        "filename": "sepolicy/file_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5678
+      },
+      "writtenOn": "2014-02-06T15:28:29Z",
+      "side": 0,
+      "message": "Why did you remove that?",
+      "revId": "384e8383c6db1c937e01c70e9e3431d86b9b59fb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
