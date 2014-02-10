@@ -33,3 +33,6 @@
 /dev/tegra_audio_avpchannel     u:object_r:audio_device:s0
 /dev/tegra_avpchannel           u:object_r:audio_device:s0
 /dev/ttyACM*                    u:object_r:audio_device:s0
+
+# Througput device (opened, closed, iocl'd by libnvos.so)
+/dev/tegra-throughput           u:object_r:throughput_device:s0

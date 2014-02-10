@@ -98,6 +98,7 @@ BOARD_SEPOLICY_UNION := \
         btmacreader.te \
         device.te \
         drmserver.te \
+        healthd.te \
         init_shell.te \
         file.te \
         rild.te \
