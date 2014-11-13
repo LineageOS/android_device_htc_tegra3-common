@@ -99,19 +99,22 @@ BOARD_SEPOLICY_DIRS := \
 BOARD_SEPOLICY_UNION += \
         file_contexts \
         genfs_contexts \
+	property_contexts \
         bluetooth.te \
         btmacreader.te \
         device.te \
         domain.te \
         drmserver.te \
+	imc_download.te \
+	init.te \
         init_shell.te \
         file.te \
         gpsd.te \
         keystore.te \
         lmkd.te \
         mediaserver.te \
+	misc.te \
         rild.te \
-        sensors_config.te \
         surfaceflinger.te \
         system_app.te \
         system_server.te \
