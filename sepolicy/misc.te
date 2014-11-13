@@ -1,0 +1,148 @@
+# WPA
+type rfkill_device, dev_type;
+allow wpa rfkill_device:chr_file rw_file_perms;
+
+
+# NVM Server
+type nvm_server, domain;
+type nvm_server_exec, exec_type, file_type;
+type nvm_socket, file_type;
+
+init_daemon_domain(nvm_server)
+
+
+# HTCBATT
+type htcbatt, domain;
+type htcbatt_exec, exec_type, file_type;
+type htcbatt_device, dev_type;
+
+init_daemon_domain(htcbatt)
+
+allow htcbatt self:capability net_admin;
+allow htcbatt htcbatt_device:chr_file rw_file_perms;
+allow htcbatt self:netlink_kobject_uevent_socket create_socket_perms;
+
+
+# WIFI CALIBRATION
+type wifi_calib, domain;
+type wifi_calib_exec, exec_type, file_type;
+
+init_daemon_domain(wifi_calib)
+
+allow wifi_calib devpts:chr_file { open read write };
+allow wifi_calib self:capability { dac_read_search dac_override };
+allow wifi_calib shell_exec:file rx_file_perms;
+allow wifi_calib shell_exec:file read;
+# Allow executing toolbox commands (ls, mkdir, ..)
+allow wifi_calib system_file:file rx_file_perms;
+
+allow wifi_calib wifi_data_file:file create_file_perms;
+allow wifi_calib wifi_data_file:dir search;
+
+
+# LOAD BT
+type load_bt, domain;
+type load_bt_exec, exec_type, file_type;
+
+init_daemon_domain(load_bt)
+
+allow load_bt devpts:chr_file { ioctl read write };
+
+allow load_bt shell_exec:file rx_file_perms;
+# Allow executing toolbox commands (ls, mkdir, ..)
+allow load_bt system_file:file rx_file_perms;
+allow load_bt self:capability sys_module;
+# Needs to create symlinks in /dev
+allow load_bt tun_device:chr_file create_file_perms;
+allow load_bt device:dir { add_name write};
+allow load_bt device:lnk_file { create read unlink };
+
+
+
+# AKMD Sensor daemon
+type akmd, domain;
+type akmd_exec, exec_type, file_type;
+
+init_daemon_domain(akmd)
+
+allow akmd sensors_device:chr_file rw_file_perms;
+allow akmd sensors_data_file:file create_file_perms;
+
+
+# EWTZ
+type ewtzmud, domain;
+type ewtzmud_exec, exec_type, file_type;
+
+init_daemon_domain(ewtzmud)
+
+allow ewtzmud sensors_device:chr_file rw_file_perms;
+
+
+# NAV
+type nav, domain;
+type nav_exec, exec_type, file_type;
+
+init_daemon_domain(nav)
+
+allow nav gps_data_file:dir rw_dir_perms;
+allow nav gps_data_file:file create_file_perms;
+allow nav gps_data_file:sock_file { create unlink};
+allow nav gps_device:chr_file rw_file_perms;
+
+
+
+# RXN INTAPP
+type rxn_intapp, domain;
+type rxn_intapp_exec, exec_type, file_type;
+
+init_daemon_domain(rxn_intapp)
+
+
+# HDMID
+type hdmid, domain;
+type hdmid_exec, exec_type, file_type;
+type hdmid_socket, file_type;
+
+init_daemon_domain(hdmid)
+
+allow hdmid self:capability net_admin;
+allow hdmid init:unix_stream_socket rw_stream_socket_perms;
+allow hdmid self:netlink_kobject_uevent_socket create_socket_perms;
+
+
+# RILPOS
+type rilpos, domain;
+type rilpos_exec, exec_type, file_type;
+
+init_daemon_domain(rilpos)
+
+allow rilpos gps_data_file:sock_file create_file_perms;
+allow rilpos gps_data_file:dir rw_dir_perms;
+allow rilpos rild:unix_stream_socket { rw_stream_socket_perms connectto };
+allow rilpos rild_socket:sock_file write;
+
+
+
+# REGDOM
+type regdom, domain;
+type regdom_exec, exec_type, file_type;
+
+init_daemon_domain(regdom)
+
+allow regdom self:capability { sys_module net_admin net_raw };
+
+allow regdom shell_exec:file rx_file_perms;
+# Allow executing toolbox commands (ls, mkdir, ..)
+allow regdom system_file:file rx_file_perms;
+allow regdom self:netlink_socket create_socket_perms;
+allow regdom self:udp_socket create_socket_perms;
+allow regdom kernel:system module_request;
+
+
+
+# CPLC (GPS)
+type cplc, domain;
+type cplc_exec, exec_type, file_type;
+
+init_daemon_domain(cplc)
+

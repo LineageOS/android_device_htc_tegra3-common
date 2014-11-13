@@ -1,0 +1,49 @@
+#type init_rild, domain;
+type init_rild_exec, exec_type, file_type;
+
+domain_auto_trans(init, init_rild_exec, vold)
+#permissive_or_unconfined(init_rild)
+
+allow vold usbfs:dir search;
+allow vold usbfs:filesystem mount;
+
+allow vold rild:fd use;
+allow vold rild:unix_stream_socket { read write };
+
+allow vold init_rild_exec:file execute_no_trans;
+
+allow vold radio_prop:property_service set;
+
+allow vold radio_data_file:dir rw_dir_perms;
+allow vold radio_data_file:file create_file_perms;
+
+allow vold radio_device:blk_file r_file_perms;
+
+allow vold system_data_file:file create;
+
+allow vold rild:fifo_file { read write };
+
+allow vold self:capability sys_module;
+
+
+allow vold rild:netlink_kobject_uevent_socket { read write };
+
+
+# Run helpers from / or /system without changing domain.
+#allow init_rild rootfs:file execute_no_trans;
+#allow init_rild system_file:file execute_no_trans;
+#allow init_rild init_rild_exec:file execute_no_trans;
+
+#allow init_rild shell_exec:file rx_file_perms;
+
+#init_daemon_domain(init_rild)
+
+
+#allow init_rild self:capability { sys_module dac_read_search dac_override };
+
+#allow init_rild usbfs:dir search;
+#allow init_rild usbfs:filesystem mount;
+
+
+#allow rild block_device:dir search;
+#allow rild system_data_file:dir write;

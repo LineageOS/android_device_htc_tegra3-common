@@ -1,3 +1,13 @@
 # Kernel bug for Linux < 3.3: sysfs inodes can lose their security context
 # and revert to the base sysfs type.
 allow rild sysfs:file write;
+
+
+domain_auto_trans(rild, init_rild_exec, vold)
+
+# ?
+allow rild self:capability dac_override;
+
+# 
+allow rild nvm_socket:sock_file { write };
+allow rild nvm_server:unix_stream_socket { connectto rw_stream_socket_perms };
