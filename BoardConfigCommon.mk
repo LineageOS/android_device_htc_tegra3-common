@@ -28,7 +28,6 @@ ARCH_ARM_HAVE_32_BYTE_CACHE_LINES := true
 ARCH_ARM_USE_NON_NEON_MEMCPY := true
 
 MALLOC_IMPL := dlmalloc
-BOARD_USES_LEGACY_MMAP := true
 
 # Board naming
 TARGET_NO_RADIOIMAGE := true
@@ -49,6 +48,8 @@ BOARD_USES_ALSA_AUDIO := false
 # Sense 4.5 / Sense 5 audio.primary blob support. See: include/hardware/audio.h
 BOARD_HAVE_PRE_KITKAT_AUDIO_BLOB := true
 COMMON_GLOBAL_CFLAGS += -DHTC_TEGRA_AUDIO
+# Old MediaBufferGroup::acquire_buffer symbol for libwvm.so
+COMMON_GLOBAL_CFLAGS += -DADD_LEGACY_ACQUIRE_BUFFER_SYMBOL
 
 #Camera
 USE_CAMERA_STUB := false # set to true by vendor
