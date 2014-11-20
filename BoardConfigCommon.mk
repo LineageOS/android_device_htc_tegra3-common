@@ -44,10 +44,13 @@ COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
 # Audio
 BOARD_USES_GENERIC_AUDIO := false
 BOARD_USES_ALSA_AUDIO := false
+COMMON_GLOBAL_CFLAGS += -DADD_LEGACY_ACQUIRE_BUFFER_SYMBOL
 
 # Sense 4.5 / Sense 5 audio.primary blob support. See: include/hardware/audio.h
 BOARD_HAVE_PRE_KITKAT_AUDIO_BLOB := true
 COMMON_GLOBAL_CFLAGS += -DHTC_TEGRA_AUDIO
+# AudioFlinger, MediaBufferGroup
+COMMON_GLOBAL_CFLAGS += -DPRE_LOLLIPOP_BLOBS
 
 #Camera
 USE_CAMERA_STUB := false # set to true by vendor
