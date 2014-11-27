@@ -27,8 +27,19 @@ ARCH_ARM_HAVE_TLS_REGISTER := true
 ARCH_ARM_HAVE_32_BYTE_CACHE_LINES := true
 ARCH_ARM_USE_NON_NEON_MEMCPY := true
 
-MALLOC_IMPL := dlmalloc
-BOARD_USES_LEGACY_MMAP := true
+
+# Kernel
+TARGET_PROVIDES_INIT_TARGET_RC := true
+TARGET_USERIMAGES_USE_EXT4 := true
+
+# Boot/Recovery image settings
+BOARD_KERNEL_CMDLINE :=
+BOARD_KERNEL_BASE := 0x10000000
+BOARD_KERNEL_PAGESIZE := 2048
+
+# Recovery
+BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
+BOARD_HAS_NO_SELECT_BUTTON := true
 
 # Board naming
 TARGET_NO_RADIOIMAGE := true
@@ -62,6 +73,9 @@ ENABLE_WEBGL := true
 # EGL settings
 USE_OPENGL_RENDERER := true
 BOARD_EGL_CFG := device/htc/tegra3-common/configs/egl.cfg
+
+MALLOC_IMPL := dlmalloc
+BOARD_USES_LEGACY_MMAP := true
 
 # No EGL_KHR_gl_colorspace
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
