@@ -151,5 +151,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.zygote.disable_gl_preload=true
 
+#Performance tuning (http://source.android.com/devices/tuning.html)
+		PRODUCT_PROPERTY_OVERRIDES += \
+		ro.hwui.disable_scissor_opt=true \
+		ro.hwui.texture_cache_size=32 \
+		ro.hwui.layer_cache_size=24
+
+# Tegra 3 spacific overrides
+		PRODUCT_PROPERTY_OVERRIDES += \
+		persist.tegra.nvmmlite=1 \
+		tf.enable=y
+
+# Old RIL features
+		PRODUCT_PROPERTY_OVERRIDES += \
+		ro.telephony.ril.config=signalstrength,skipbrokendatacall
+
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
