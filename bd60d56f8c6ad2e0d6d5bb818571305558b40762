@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bab6814e_1cfe726b",
+        "filename": "overlay/frameworks/base/core/res/res/xml/power_profile.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5678
+      },
+      "writtenOn": "2014-11-28T14:31:46Z",
+      "side": 1,
+      "message": "That\u0027s different for our devices.",
+      "revId": "bd60d56f8c6ad2e0d6d5bb818571305558b40762",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bab6814e_5cf8fa7c",
+        "filename": "overlay/frameworks/base/core/res/res/xml/storage_list.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5678
+      },
+      "writtenOn": "2014-11-28T14:31:46Z",
+      "side": 1,
+      "message": "That\u0027s different for our devices.",
+      "revId": "bd60d56f8c6ad2e0d6d5bb818571305558b40762",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bab6814e_fc028e6e",
+        "filename": "overlay/frameworks/base/packages/SystemUI/res/values/dimens.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5678
+      },
+      "writtenOn": "2014-11-28T14:31:46Z",
+      "side": 1,
+      "message": "Say bye bye to this.",
+      "revId": "bd60d56f8c6ad2e0d6d5bb818571305558b40762",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bab6814e_3cf53683",
+        "filename": "overlay/packages/apps/Mms/res/xml/mms_config.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5678
+      },
+      "writtenOn": "2014-11-28T14:31:46Z",
+      "side": 1,
+      "message": "Is that really needed? Sounds like basic stuff to me.",
+      "revId": "bd60d56f8c6ad2e0d6d5bb818571305558b40762",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bab6814e_7cefbeb0",
+        "filename": "overlay/packages/apps/Settings/res/values/config.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 5678
+      },
+      "writtenOn": "2014-11-28T14:31:46Z",
+      "side": 1,
+      "message": "Indents :)",
+      "revId": "bd60d56f8c6ad2e0d6d5bb818571305558b40762",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
