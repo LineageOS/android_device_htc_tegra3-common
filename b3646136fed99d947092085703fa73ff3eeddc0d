@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bab6814e_856de634",
+        "filename": "BoardConfigCommon.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5678
+      },
+      "writtenOn": "2014-11-29T07:42:31Z",
+      "side": 0,
+      "message": "That should be left in there.",
+      "revId": "b3646136fed99d947092085703fa73ff3eeddc0d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
