@@ -31,10 +31,13 @@ public class HTCTegra3RIL extends RIL implements CommandsInterface {
     public static final int RIL_UNSOL_CUSTOMIZE_SIM_INFO = 3050;
     public static final int RIL_UNSOL_SIM_HOT_SWAP_COUNT = 3052;
 
+    private Context mContext;
+
     public HTCTegra3RIL(Context context, int networkMode, int cdmaSubscription, Integer instanceId) {
         super(context, networkMode, cdmaSubscription, instanceId);
 
         mQANElements = 5;
+        mContext = context;
     }
 
     @Override
@@ -74,6 +77,7 @@ public class HTCTegra3RIL extends RIL implements CommandsInterface {
 
             case RIL_UNSOL_SIM_HOT_SWAP:
                 if (T3_RILJ_LOGD) unsljLogRet(response, ret);
+                handleHotSwap(ret);
                 break;
 
             case RIL_UNSOL_CUSTOMIZE_SIM_INFO:
@@ -84,6 +88,31 @@ public class HTCTegra3RIL extends RIL implements CommandsInterface {
                 if (T3_RILJ_LOGD) unsljLogRet(response, ret);
                 break;
         }
+    }
+
+    private void handleHotSwap(Object ret) {
+        boolean inserted = false;
+        int[] result = (int[]) ret;
+        if (result != null && result.length > 0) {
+            inserted = result[0] == 1;
+        }
+
+        if (T3_RILJ_LOGD)
+            Rlog.d(LOG_TAG, "[HOTSWAP] Card was " + (inserted ? "inserted" : "removed"));
+
+        int airplaneMode = Settings.Global.getInt(mContext.getContentResolver(),
+                Settings.Global.AIRPLANE_MODE_ON, 0);
+        if (airplaneMode > 0) {
+            if (T3_RILJ_LOGD)
+                Rlog.d(LOG_TAG, "[HOTSWAP] Ignoring event in airplane mode");
+            return;
+        }
+
+        // Turn radio off. It will be started again automatically by
+        // the GsmServiceStateStracker.
+        // This triggers a update of most systems to detect a SIM
+        // insertion or removal.
+        setRadioPower(false, null);
     }
 
     /**
