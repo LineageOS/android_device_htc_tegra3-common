@@ -74,7 +74,6 @@
 /dev/ttyACM.*                   u:object_r:radio_device:s0
 /dev/block/mmcblk0p3            u:object_r:radio_device:s0
 /dev/block/mmcblk0p6            u:object_r:radio_device:s0
-/dev/socket/rild-agps           u:object_r:rild_socket:s0
 
 /rca(/.*)?                      u:object_r:radio_data_file:s0
 /rfs(/.*)?                      u:object_r:radio_data_file:s0
